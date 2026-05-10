@@ -13,7 +13,7 @@ Simple Python project for detecting ArUco markers, computing homography, and con
 
 ## Example
 
-| Detection + Red sample point | Warped World View + Transformed Red sample point|
+| Detection | Warped World View |
 |---|---|
 | ![Detected markers](fig1.png) | ![Warped world image](fig2.png) |
 
@@ -26,13 +26,17 @@ ArUco detection utilities:
 - generate markers
 - detect markers
 - store IDs and corners
-- helper methods: `found()`, `ids_flat()`
+- helper methods:
+  - [`found()`](#detectpy)
+  - [`ids_flat()`](#detectpy)
 
 Main class:
 
 ```python
 Detect()
 ```
+
+---
 
 ### `Measure.py`
 
@@ -51,15 +55,15 @@ Measure()
 
 Main methods:
 
-```python
-collect()
-compute_homography()
-warp_image_to_world()
-transform_point_i2w()
-transform_point_w2i()
-plot_detection()
-plot_world_detection()
-```
+- [`collect()`](#measurepy)
+- [`compute_homography()`](#measurepy)
+- [`warp_image_to_world()`](#measurepy)
+- [`transform_point_i2w()`](#measurepy)
+- [`transform_point_w2i()`](#measurepy)
+- [`plot_detection()`](#measurepy)
+- [`plot_world_detection()`](#measurepy)
+
+---
 
 ### `Aruko_example.ipynb`
 
