@@ -79,21 +79,6 @@ plot_world_detection()
 
 ---
 
-## `helper_plots.py`
-
-Visualization helper functions.
-
-This module contains plotting utilities for:
-- drawing detected markers
-- plotting marker IDs
-- plotting warped world images
-- cropping detection regions
-- formatting matplotlib plots
-
-Mostly used internally by `Measure.py`.
-
----
-
 ## `Aruko_example.ipynb`
 
 Example notebook showing:
@@ -106,40 +91,11 @@ Good starting point for testing the project.
 
 ---
 
-# Hardware / Frame
-
-The setup uses:
-- 20×20 aluminum tubing
-- magnetic screw-on marker mounts
-- printed ArUco markers
-
-Fusion 360 model:
-
-👉 https://a360.co/4eDsnkG
-
----
-
 # Requirements
 
 ```bash
 pip install opencv-python opencv-contrib-python matplotlib numpy
 ```
-
----
-
-# Basic Usage
-
-See full example in:
-
-```bash
-Aruko_example.ipynb
-```
-
-The notebook shows:
-- marker detection
-- homography computation
-- coordinate transforms
-- warped world image visualization
 
 ---
 
