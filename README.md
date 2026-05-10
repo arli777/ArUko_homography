@@ -1,72 +1,56 @@
 # ArUco Homography Measurement
 
-Simple Python project for detecting ArUco markers, computing homography, and transforming image coordinates into real world coordinates.
+Simple Python project for detecting ArUco markers, computing homography, and converting image coordinates into real-world coordinates.
 
-The project can:
-- detect ArUco markers
-- match markers to known world positions
-- compute homography
-- warp the image into world coordinates
-- transform points between image space and world space
-- visualize detections and warped images
+## Features
 
----
+- Detect ArUco markers
+- Match markers to known world positions
+- Compute homography
+- Transform points between image and world space
+- Warp images into world coordinates
+- Visualize detections and transformed points
 
-# Example
+## Example
 
-## Original image with detected markers and Red point of interest
+| Detection + Red sample point | Warped World View + Transformed Red sample point|
+|---|---|
+| ![Detected markers](fig1.png) | ![Warped world image](fig2.png) |
 
-![Detected markers](fig1.png)
+## Repository Structure
 
-## Warped image in world coordinates and transformed Red point of interest
+### `Detect.py`
 
-![Warped world image](fig2.png)
+ArUco detection utilities:
 
----
-
-# Repository Structure
-
-## `Detect.py`
-
-Main ArUco detection module.
-
-This module:
-- creates ArUco markers
-- creates sample marker images
-- detects markers in grayscale images
-- stores detected corners and IDs
-- provides helper functions like:
-  - `found()`
-  - `ids_flat()`
+- generate markers
+- detect markers
+- store IDs and corners
+- helper methods: `found()`, `ids_flat()`
 
 Main class:
+
 ```python
 Detect()
 ```
 
----
+### `Measure.py`
 
-## `Measure.py`
+Homography and measurement tools:
 
-Main measurement and homography module.
-
-This module:
-- loads images
-- detects markers
-- matches markers to known world coordinates
-- computes homography matrix
-- transforms points:
-  - image → world
-  - world → image
-- warps image into world coordinate system
-- visualizes detections
+- compute homography
+- transform coordinates
+- warp images
+- visualize results
 
 Main class:
+
 ```python
 Measure()
 ```
 
-Important methods:
+Main methods:
+
 ```python
 collect()
 compute_homography()
@@ -77,31 +61,23 @@ plot_detection()
 plot_world_detection()
 ```
 
----
+### `Aruko_example.ipynb`
 
-## `Aruko_example.ipynb`
-
-Example notebook showing:
+Example notebook demonstrating:
 - marker detection
 - homography computation
-- coordinate transformation
-- plotting results
+- coordinate transforms
+- visualization
 
-Good starting point for testing the project.
-
----
-
-# Requirements
+## Requirements
 
 ```bash
 pip install opencv-python opencv-contrib-python matplotlib numpy
 ```
 
----
+## Notes
 
-# Notes
-
-- Minimum 4 known markers are required for homography.
-- Marker IDs must match IDs in `WORLD_COORDS`.
-- Coordinate units are user-defined (`mm`, `cm`, etc.).
-- Uses OpenCV ArUco module.
+- At least 4 known markers are required
+- Marker IDs must match `WORLD_COORDS`
+- Units are user-defined (`mm`, `cm`, etc.)
+- Built with OpenCV ArUco module
