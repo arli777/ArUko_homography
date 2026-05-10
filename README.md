@@ -26,9 +26,11 @@ ArUco detection utilities:
 - generate markers
 - detect markers
 - store IDs and corners
-- helper methods:
-  - [`found()`](#detectpy)
-  - [`ids_flat()`](#detectpy)
+
+Helper methods:
+
+- [`found()`](./Detect.py#L85)
+- [`ids_flat()`](./Detect.py#L92)
 
 Main class:
 
@@ -55,19 +57,20 @@ Measure()
 
 Main methods:
 
-- [`collect()`](#measurepy)
-- [`compute_homography()`](#measurepy)
-- [`warp_image_to_world()`](#measurepy)
-- [`transform_point_i2w()`](#measurepy)
-- [`transform_point_w2i()`](#measurepy)
-- [`plot_detection()`](#measurepy)
-- [`plot_world_detection()`](#measurepy)
+- [`collect()`](./Measure.py#L42)
+- [`compute_homography()`](./Measure.py#L78)
+- [`warp_image_to_world()`](./Measure.py#L115)
+- [`transform_point_i2w()`](./Measure.py#L150)
+- [`transform_point_w2i()`](./Measure.py#L170)
+- [`plot_detection()`](./Measure.py#L210)
+- [`plot_world_detection()`](./Measure.py#L240)
 
 ---
 
 ### `Aruko_example.ipynb`
 
 Example notebook demonstrating:
+
 - marker detection
 - homography computation
 - coordinate transforms
