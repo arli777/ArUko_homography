@@ -10,7 +10,21 @@ from Detect import Detect
 
 
 class Measure:
-   def __init__(self, WORLD_COORDS: None | dict[int, np.ndarray] = None, pos="tl", unit="mm"):
+   def __init__(
+         self,
+         WORLD_COORDS: None | dict[int, np.ndarray] = None,
+         pos: str = "tl",
+         unit: str = "mm",
+   ) -> None:
+      """
+      Initialize ArUco-based homography measurement and world-coordinate transformation utilities.
+
+      :param WORLD_COORDS: dict[int, np.ndarray[np.float32 | np.float64]] | None Mapping of marker IDs to world-space coordinates (2,) .
+      :param pos: str Marker reference position ("tl", "tr", "br", "bl", or "c").
+      :param unit: str Unit label used for world-coordinate measurements.
+
+      :return: [None] Measurement state and calibration buffers initialized.
+      """
       self.world = WORLD_COORDS  # expects dict{id: np.ndarray. shape (2, )} in mm
       self.pos = pos.lower()
       self.unit = unit
