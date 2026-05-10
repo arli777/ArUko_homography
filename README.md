@@ -29,8 +29,8 @@ ArUco detection utilities:
 
 Helper methods:
 
-- [`found()`](./Detect.py#L85)
-- [`ids_flat()`](./Detect.py#L92)
+- `found()`
+- `ids_flat()`
 
 Main class:
 
@@ -57,13 +57,13 @@ Measure()
 
 Main methods:
 
-- [`collect()`](./Measure.py#L42)
-- [`compute_homography()`](./Measure.py#L78)
-- [`warp_image_to_world()`](./Measure.py#L115)
-- [`transform_point_i2w()`](./Measure.py#L150)
-- [`transform_point_w2i()`](./Measure.py#L170)
-- [`plot_detection()`](./Measure.py#L210)
-- [`plot_world_detection()`](./Measure.py#L240)
+- `collect()`
+- `compute_homography()`
+- `warp_image_to_world()`
+- `transform_point_i2w()`
+- `transform_point_w2i()`
+- `plot_detection()`
+- `plot_world_detection()`
 
 ---
 
