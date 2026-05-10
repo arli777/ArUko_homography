@@ -23,14 +23,8 @@ Simple Python project for detecting ArUco markers, computing homography, and con
 
 ArUco detection utilities:
 
-- generate markers
-- detect markers
-- store IDs and corners
-
-Helper methods:
-
-- `found()`
-- `ids_flat()`
+- generate markers: `create_marker`, `create_sample_image`
+- detect markers and store IDs and corners: `detect`
 
 Main class:
 
@@ -43,38 +37,21 @@ Detect()
 ### `Measure.py`
 
 Homography and measurement tools:
-
-- compute homography
-- transform coordinates
-- warp images
-- visualize results
+- compute homography: `compute_homography()`
+- transform coordinates: `transform_point_i2w()`, `transform_point_w2i()`
+- warp images: `warp_image_to_world()`
+- visualize results: `plot_detection()`, `plot_world_detection()`
 
 Main class:
 
 ```python
 Measure()
 ```
-
-Main methods:
-
-- `collect()`
-- `compute_homography()`
-- `warp_image_to_world()`
-- `transform_point_i2w()`
-- `transform_point_w2i()`
-- `plot_detection()`
-- `plot_world_detection()`
-
 ---
 
 ### `Aruko_example.ipynb`
 
-Example notebook demonstrating:
-
-- marker detection
-- homography computation
-- coordinate transforms
-- visualization
+Example notebook demonstrating: marker detection -> homography computation -> coordinate transforms -> visualization
 
 ## Requirements
 
