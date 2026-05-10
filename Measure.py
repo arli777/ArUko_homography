@@ -1,8 +1,8 @@
 import numpy as np
 import cv2
-# import matplotlib
-#
-# matplotlib.use("QtAgg")
+import matplotlib
+
+matplotlib.use("QtAgg")
 import matplotlib.pyplot as plt
 import helper_plots as hp
 
