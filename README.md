@@ -14,17 +14,13 @@ The project can:
 
 # Example
 
-## Original image with detected markers
+## Original image with detected markers and Red point of interest
 
 ![Detected markers](fig1.png)
 
-## Warped image in world coordinates
+## Warped image in world coordinates and transformed Red point of interest
 
 ![Warped world image](fig2.png)
-
-## Real setup
-
-![Setup photo](example.jpg)
 
 ---
 
