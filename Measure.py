@@ -1,13 +1,41 @@
 import numpy as np
 import cv2
-import matplotlib
-
-matplotlib.use("QtAgg")
 import matplotlib.pyplot as plt
 import helper_plots as hp
 
 from Detect import Detect
 
+
+def corners_to_point(
+      corners: np.ndarray, pos: str = "tl",
+) -> np.ndarray:
+   """
+   Extract a selected point from detected marker corners.
+
+   Supported positions:
+   - "tl": top-left
+   - "tr": top-right
+   - "br": bottom-right
+   - "bl": bottom-left
+   - "c": marker center
+
+   :param corners: np.ndarray[np.float32] (4, 2) Marker corner coordinates.
+   :param pos: str Marker reference position.
+
+   :return: [np.ndarray[np.float32]] (2,) Selected marker point in image coordinates.
+   """
+   pos_map = {"tl": 0, "tr": 1, "br": 2, "bl": 3}
+
+   if pos == "c":
+      return np.mean(corners, axis=0)
+
+   if pos in pos_map:
+      return corners[pos_map[pos], :]
+
+   raise ValueError(
+      f"Unsupported position '{pos}'. "
+      f"Use tl/tr/br/bl/c"
+   )
 
 class Measure:
    def __init__(
@@ -86,6 +114,7 @@ class Measure:
       self.format_image(image)
       return self.detect.detect(self.image_gray)
 
+
    def marker_point(
          self,
          corners: np.ndarray,
@@ -104,18 +133,7 @@ class Measure:
 
       :return: [np.ndarray[np.float32]] (2,) Selected marker point in image coordinates.
       """
-      pos_map = {"tl": 0, "tr": 1, "br": 2, "bl": 3}
-
-      if self.pos == "c":
-         return np.mean(corners, axis=0)
-
-      if self.pos in pos_map:
-         return corners[pos_map[self.pos], :]
-
-      raise ValueError(
-         f"Unsupported position '{self.pos}'. "
-         f"Use tl/tr/br/bl/c"
-      )
+      return corners_to_point(corners, self.pos)
 
    def find_calibration_matches(
          self,
