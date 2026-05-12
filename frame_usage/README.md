@@ -37,7 +37,7 @@ Printable mounting models:
 
 * [PCB ArUco holder](https://a360.co/4nsENOI) (markers **10** and **11**)
 
-* [20×20 mm aluminium frame ArUco holder](https://a360.co/4eDsnk) (markers *0* to *9*)
+* [20×20 mm aluminium frame ArUco holder](https://a360.co/4eDsnk) (markers **0** to **9**)
   
 
 Printed parts use: magnets `9.75×4.75×1.75` and `9×4.6×2.6`, screws `M3×12` and threaded inserts `M3 8×4.2 mm`
