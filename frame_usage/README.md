@@ -9,7 +9,7 @@ Detect ArUco markers, compute image to world homography, and localise LED positi
 pip install opencv-python opencv-contrib-python matplotlib numpy
 ```
 
-## Usage
+## Usage - Single frame
 
 | Command                                                                        | Description                    |
 |--------------------------------------------------------------------------------| ------------------------------ |
@@ -29,6 +29,33 @@ x=534.281921, y=482.184387
 | Output | `image,x,y`<br>`sample.jpg,534.281921,482.184387` | <img src="led_plot.png" width="305"> | <img src="layout.png" width="325"> |
 
 
+## Usage - Video
+
+Track the LED through a video, export measured world coordinates to CSV, and optionally create an annotated video with the tracked path.
+
+| Command | Description |
+|---|---|
+| `python track_led_video.py input.mp4 -out results.csv -annotated tracked.mp4` | Track LED, save CSV, and render annotated video |
+| `python track_led_video.py input.mp4 -out results.csv --measure-only` | Only measure video and save CSV |
+| `python track_led_video.py input.mp4 -csv results.csv -annotated tracked.mp4 --draw-only` | Draw annotated video from an existing CSV |
+| `python track_led_video.py input.mp4 -out results.csv -annotated tracked.mp4 --min-calibration-markers 7` | Use stricter frame filtering |
+| `python track_led_video.py input.mp4 -out results.csv -annotated tracked.mp4 --include-failed` | Also keep failed frames in CSV for debugging |
+
+| Feature | Description |
+|---|---|
+| Pass condition | A frame is accepted only if marker **10** or **11** is detected, and at least **6 markers** from IDs **0–9** are detected. |
+| Interpolation | Frames that fail detection are skipped from normal results and interpolated from neighboring valid frames when drawing the annotated video. |
+| Annotated video | Draws the tracked path with alpha `0.5`, marks the current LED position with a red `X`, and writes the current `(x, y)` coordinates in the lower corner. |
+| CSV behavior | The CSV is rewritten on each run, not appended. |
+
+| CSV column | Description |
+|---|---|
+| `frame` | Frame index in the input video |
+| `time_s` | Frame timestamp in seconds |
+| `x`, `y` | LED position in world coordinates |
+| `h00`–`h22` | 3×3 image-to-world homography matrix, stored row-wise |
+| `n_calibration_markers_0_9` | Number of detected calibration markers from IDs 0–9 |
+| `led_marker_ids` | Detected LED marker IDs, usually `10`, `11`, or both |
 
 
 ## 3D Models

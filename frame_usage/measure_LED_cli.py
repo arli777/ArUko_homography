@@ -10,7 +10,6 @@ matplotlib.use("QtAgg")
 import matplotlib.pyplot as plt
 import cv2
 
-from Measure import Measure
 from measure_LED import *
 
 

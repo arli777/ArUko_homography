@@ -6,7 +6,8 @@ matplotlib.use("QtAgg")
 import matplotlib.pyplot as plt
 import cv2
 
-from Measure import Measure, corners_to_point
+
+from Measure import Measure
 
 PCB_height = 24.38
 PCB_width = 51.0
@@ -46,7 +47,7 @@ WORLD_TL_POS= {
     9: "tl",
 }
 
-ORIGIN = np.array([44.93, 44.61])
+ORIGIN = np.array([44.93, 44.61]) + np.array([500., 600.])
 ARUCO_OFFSET = {
     "tl": np.array([1.0, 1.0]) * Aruco_border_th,
     "bl": np.array([-1.0, 1.0]) * Aruco_border_th,
